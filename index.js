@@ -11,6 +11,13 @@ const productCounter = document.querySelector(".counter");
 const gallery = document.querySelectorAll(".pic");
 const banner = document.querySelector(".banner");
 
+const carouselImages = document.querySelector('.mobile-gallery');
+const images = document.querySelectorAll('.mobile-gallery img');
+const carouselButtons = document.querySelectorAll('.carousel-btn');
+const numberOfImages = document.querySelectorAll('.mobile-gallery img').length;
+let imageIndex = 1;
+let translateX = 0;
+
 let productCounterValue = 1;
 
 hamburger.addEventListener("click", () => {
@@ -38,7 +45,6 @@ function setProductCounter(value) {
     productCounterValue += value;
     productCounter.innerHTML = productCounterValue;
   }
-  // console.log(value);
 }
 
 //------------------thumbnail section----------------
@@ -54,23 +60,24 @@ gallery.forEach((img) => {
   //set active thumbnail
   event.target.parentElement.classList.add("active");
   //set img action
-   banner.src = event.target.src.replace(".thumb-gallary", "");
+   banner.src = event.target.src.replace("-thumbnail", "");
  }
 
-//---------next amd previous buttons
-nextBtn.addEventListener("click", btnNext);
-previousBtn.addEventListener("click", btnPrevious);
-
-function btnNext() {
-let imageIndex = getCurrentImageIndex();
-imageIndex++
-if(imageIndex > 4){
-  imageIndex = 1;
-}
-setMoreImage()
-}
-
-function btnPrevious() {
-
-}
-
+//TODO:Change style of carousel buttons when you reach the beginning or end of the gallery.
+ carouselButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    if (event.target.id === 'previous') {
+      if (imageIndex !== 1) {
+        imageIndex--;
+        translateX += 100;
+      }
+    } else {
+      if (imageIndex !== numberOfImages) {
+        imageIndex++;
+        translateX -= 100;
+      }
+    }
+    
+    carouselImages.style.transform = `translateX(${translateX}%)`;
+  });
+})
