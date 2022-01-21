@@ -33,10 +33,29 @@
 .logo {
   width: 70%;
 }
+.cart-group{
+  display: flex;
+}
+
+.btncart{
+  position: relative;
+  cursor: pointer;
+
+}
+.cart-count{
+  position: absolute;
+  bottom: 58%;
+  left: 30%;
+  background-color: hsl(24, 83%, 49%);
+  color: white;
+  border-radius: 45%;
+  padding: 1px 6px;
+  font-size: 9px ;
+}
 
 .cart {
-  width: 45%;
-  padding-right: 5px;
+  width: 95%;
+  padding-right: 9px;
 }
 
 .avatar {
@@ -335,10 +354,7 @@ display: none;
     margin-bottom: 10px;
   }
 
-  /* .logo{
-padding-right: 40px;
-  } */
-
+  
   .menu {
     display: none;
   }
@@ -347,7 +363,7 @@ padding-right: 40px;
     display: block;
     position: unset;
     height: unset;
-    /* margin-bottom: 10px;  */
+  
   }
 
   .slide-menu {
@@ -368,7 +384,6 @@ padding-right: 40px;
   }
 
   .banner {
-    /* margin-top: 50px; */
     width: 80%;
     height: 35%;
     border-radius: 5%;
@@ -392,6 +407,11 @@ padding-right: 40px;
     align-items: center;
     gap: 35px;
     margin-bottom: 30px;
+  }
+
+  .cart {
+    width: 100%;
+    padding-right: 9px;
   }
 
   a {
